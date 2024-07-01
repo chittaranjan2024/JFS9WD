@@ -1,0 +1,129 @@
+package treeDataStructure;
+class Node
+{
+	public int data;
+	public Node leftChild;
+	public Node rightChild;
+	
+	public Node()
+	{
+		
+	}
+	
+	public void display()
+	{
+		System.out.print(" "+data);
+	}
+}
+
+
+public class Tree {
+
+	private Node root;
+	
+	public Tree()
+	{
+		root=null;
+	}
+	
+	public void insert(int data)
+	{
+		Node tempNode=new Node();
+		tempNode.data=data;
+		
+		
+		if(root==null)
+		{
+			root=tempNode;
+		}
+		
+		else
+		{
+			Node current=root;
+			Node parent=null;
+			
+			
+			while(true)
+			{
+				parent=current;
+				if(data<parent.data)
+				{
+					current=current.leftChild;
+				
+					if(current==null)
+					{
+						parent.leftChild=tempNode;
+					}
+				}
+				else
+				{
+					current=current.rightChild;
+					if(current==null)
+					{
+						parent.rightChild=tempNode;
+					}
+				}
+				
+			}
+		}
+	}
+	
+	
+	public void preOrder(Node root)
+	{
+		if(root!=null)
+		{
+			System.out.print(root.data+" ");
+			preOrder(root.leftChild);
+			preOrder(root.rightChild);
+		}
+	}
+	public void postOrder(Node root)
+	{
+		if(root!=null)
+		{
+			
+			preOrder(root.leftChild);
+			preOrder(root.rightChild);
+			System.out.print(root.data+" ");
+		}
+	}
+	
+	public void inOrder(Node root)
+	{
+		if(root!=null)
+		{
+			
+			preOrder(root.leftChild);
+			System.out.print(root.data+" ");
+			preOrder(root.rightChild);
+			
+		}
+	}
+	
+	
+	void traversal()
+	{
+		System.out.println();
+		preOrder(root);
+		System.out.println();
+		postOrder(root);
+		System.out.println();
+		inOrder(root);
+	}
+	public static void main(String[] args) {
+		
+		Tree tree=new Tree();
+		
+		tree.insert(11);
+		tree.insert(22);
+		tree.insert(33);
+		tree.insert(44);
+		tree.insert(55);
+		tree.insert(66);
+		
+		
+
+	}
+
+}

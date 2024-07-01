@@ -1,0 +1,49 @@
+package codekata;
+
+import java.util.Comparator;
+
+class Ele
+{
+	int count,index, val;
+}
+
+//for sorting by the value 
+class SortByValue implements Comparator<Ele>
+{
+
+	@Override
+	public int compare(Ele o1, Ele o2) {
+		
+		return (o1.val-o2.val);
+	}
+	
+}
+//for sorting by the frequency. In frequency is same for two or more element then consider the index  
+class SortByFrequency implements Comparator<Ele>
+{
+
+	@Override
+	public int compare(Ele o1, Ele o2) {
+		if(o1.count!=o2.count)
+			return (o1.count-o2.count);
+		return (o1.index-o2.index);
+	}
+	
+}
+
+void sortElements()
+{
+	
+}
+
+public class IncreasingOrderOfFrequency {
+
+	public static void main(String[] args) {
+		int ar[]= {5,3,2,1,1,4,5,7,9};
+		int length=ar.length;
+		
+		
+
+	}
+
+}

@@ -1,0 +1,26 @@
+Vector:
+Synchronized or thread safe leads to slow processing speed
+
+Stack:
+
+HashSet:
+HashSet stores the elements by using a mechanism called hashing.
+HashSet contains unique elements only.
+HashSet allows null value.
+HashSet class is non synchronized.
+HashSet doesn't maintain the insertion order. Here, elements are inserted on the basis of their hashcode.
+HashSet is the best approach for search operations.
+
+LinkedHashSet:
+Java LinkedHashSet class contains unique elements only like HashSet.
+Java LinkedHashSet class provides all optional set operations and permits null elements.
+Java LinkedHashSet class is non-synchronized.
+Java LinkedHashSet class maintains insertion order.
+
+Tree Set:
+Java TreeSet class contains unique elements only like HashSet.
+Java TreeSet class access and retrieval times are quite fast.
+Java TreeSet class doesn't allow null elements.
+Java TreeSet class is non-synchronized.
+Java TreeSet class maintains ascending order.
+The TreeSet can only allow those generic types that are comparable. For example The Comparable interface is being implemented by the StringBuffer class.

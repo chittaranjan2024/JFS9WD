@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;sorting.hh.java&apos; to &apos;solution1.java&apos;&#x0D;&#x0A;- Original project: &apos;data-structure&apos;&#x0D;&#x0A;- Original element: &apos;sorting.hh.java&apos;&#x0D;&#x0A;- Renamed element: &apos;sorting.solution1.java&apos;" description="Rename compilation unit &apos;hh.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;sorting{hh.java" name="solution1.java" references="false" stamp="1718875777094" version="1.0"/>
+</session>
