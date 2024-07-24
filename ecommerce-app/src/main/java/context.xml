@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+   
+   <bean class="org.test.spring.ecommerce_app.Order" name="order1">
+   	<property name="id" value="98765"/>
+   	<property name="date" value="12/5/24"/>
+   	<property name="amount" value="4000"/>
+   </bean>
+
+
+
+   <bean name="customer1" class="org.test.spring.ecommerce_app.Customer" scope="prototype" autowire="byType">
+     <property name="id" value="2345"></property>
+     <property name="name" value="Mr. Raman"></property>
+     <property name="address" value="Chennai"></property>
+     <property name="phones">
+     	<set>
+	     	 <value>1111111</value>
+	     	 <value>2222222</value>
+	     	 <value>3333333</value>
+     	</set>
+     </property>
+  <!--    <property name="order" ref="order"></property> -->
+   </bean>
+
+</beans>

@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\Digital Suppliers\eclipse-workspace\first-spring-app\pom.xml"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -25,12 +26,16 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="org.test.spring"/>
+			<item value="org.test.spring.first_spring_app"/>
 			<item value="com.test.crud_app"/>
 		</list>
 		<list key="groupId">
+			<item value="org.test.spring"/>
 			<item value="com.test"/>
 		</list>
 		<list key="artifactId">
+			<item value="first-spring-app"/>
 			<item value="crud-app"/>
 		</list>
 		<list key="projectNameTemplate">

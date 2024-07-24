@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    //HTTP protocol - client-server
+    <form action="/process" method="post" autocomplete="off" novalidate >
+
+        <label>Name:</label><br>
+        <input type="text" name="username" id="username" maxlength="50" minlength="3" required >
+
+        <br>
+
+        <label>Date of birth:</label><br>
+        <input type="date" name="dob" id="dob" required>
+
+        <br>
+        <label>Password</label><br>
+        <input type="password" name="password" id="password" required>
+
+        <br>
+        <label>Email</label><br>
+        <input type="email" name="email" id="email" required>
+
+        <br>
+        <label>Image</label><br>
+        <input type="file" name="image" id="image" required>
+
+        <br>
+        <label>Phone</label><br>
+        <input type="number" name="pno" id="pno" min="111" max="999">
+
+        <br>
+        <label>Gender</label><br>
+        <input type="radio" name="gender" id="gender" value="Male" >Male
+        <input type="radio" name="gender" id="gender" value="Female" checked>Female
+        <input type="radio" name="gender" id="gender" value="Other">Other
+
+        <br>
+        <label>Food</label><br>
+        <input type="checkbox" name="food" id="gender" value="Veg" >Veg
+        <input type="checkbox" name="food" id="gender" value="Non-veg" >Non-veg
+        
+
+
+    <input type="range" name="points" id="points" min="1" max="5">
+    <br>
+
+    <input type="hidden" name="companyname" value="ABC Pvt. Ltd"><br>
+    <input type="text" name="companyname" value="ABC Pvt. Ltd" readonly><br>
+    <input type="text" name="companyname" value="ABC Pvt. Ltd" disabled><br>
+    <input type="color">
+    <br>
+
+    <textarea rows="10" cols="15">
+
+    </textarea>
+    <br>
+
+    <input type="text" pattern="[A-Z]{3}" required>
+    <br>
+    <input type="reset" value="clear">
+    <input type="submit" value="submit">
+    <input type="button" value="Button">
+
+    
+
+    </form>
+    
+</body>
+</html>
