@@ -8,8 +8,16 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class User {
 
 	@Id
@@ -29,44 +37,6 @@ public class User {
 	@NotEmpty(message = "Email can not be empty")
 	@Email(message = "Wrong email format")
 	private String email;
-	public User() {
-		
-	}
-	public User(long id, String name, String city, String email) {
-		
-		this.id = id;
-		this.name = name;
-		this.city = city;
-		this.email = email;
-	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", city=" + city + ", email=" + email + "]";
-	}
 	
 	
 }

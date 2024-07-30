@@ -1,5 +1,7 @@
 package org.user.app.controller;
 
+import java.util.Optional;
+
 import org.hibernate.usertype.UserCollectionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.user.app.model.User;
 import org.user.app.service.UserService;
 
@@ -69,6 +72,26 @@ public class UserController {
 	{
 		this.userService.deleteUserById(id);
 		return "redirect:/users";
+	}
+	
+	@GetMapping("/update/{id}")
+	public ModelAndView showUpdateUserForm(@PathVariable("id")long id)
+	{
+		Optional<User> user=this.userService.getUserById(id);
+		ModelAndView modelAndView=new ModelAndView();
+		if(user.isPresent())
+		{
+			
+			modelAndView.setViewName("update-user");
+			modelAndView.addObject("user", this.userService.getUserById(id).get());
+			return modelAndView;
+		}
+		else
+		{
+			modelAndView.setViewName("index");
+			return modelAndView;
+		}
+		
 	}
 	
 }

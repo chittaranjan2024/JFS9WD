@@ -14,18 +14,31 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.service.annotation.GetExchange;
 import org.user.app.model.User;
+import org.user.app.repository.UserRepository;
 import org.user.app.service.UserService;
+import org.user.app.validation.UserIdNotFoundException;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
+@Tag(name="User Controller",description = "CRUD operations on User Entity")
 @RestController
 public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	//@RequestMapping(value="/user",method = RequestMethod.POST)
 	@PostMapping(path = "/user")
@@ -34,6 +47,15 @@ public class UserController {
 		return new ResponseEntity<User>( this.userService.addUser(user),HttpStatus.CREATED); //200 -OK 201-CREATED
 	}
 	
+	
+	
+	@Operation(
+			summary = "Retrieve all users", 
+			description = "This endpoint returns all users in a json array ", 
+			tags = {"user","get"})
+	@ApiResponses({
+		@ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = User.class),mediaType = "application/json")})
+	})
 	@GetMapping("/users")
 	public ResponseEntity<List<User>> findAllUsers()
 	{
@@ -51,7 +73,7 @@ public class UserController {
 		}
 		else
 		{
-			throw new Exception("User not found!!");
+			throw new UserIdNotFoundException("User not found!!");
 		}
 	}
 	
@@ -85,7 +107,7 @@ public class UserController {
 			throw new Exception("User not found!!");
 		}
 	}
-	
+	//  /user/123
 	@DeleteMapping("/user/{id}")
 	public ResponseEntity<String> deleteUser(@PathVariable("id")Long id) throws Exception
 	{
@@ -102,4 +124,41 @@ public class UserController {
 	}
 	
 	
+	//query parameter - /city?name=mumbai
+	@GetMapping("/city")
+	public ResponseEntity<?> getUsersByCity(@RequestParam("cityname")String city)
+	{
+		List<User> users=this.userRepository.findByCity(city);
+		
+		return new ResponseEntity<List<User>>(users,HttpStatus.OK);
+		
+	}
+	
+	//query parameter - /city?name=mumbai
+	@GetMapping("/findbyname")
+	public ResponseEntity<?> getUsersByName(@RequestParam("name")String name)
+	{
+		List<User> users=this.userRepository.getUsersByName(name);
+		
+		return new ResponseEntity<List<User>>(users,HttpStatus.OK);
+		
+	}
+	
+	@GetMapping("/findbynameandcity")
+	public ResponseEntity<?> getUsersByName(@RequestParam("uname")String name,@RequestParam("city")String city)
+	{
+		List<User> users=this.userRepository.getUsersByNameAndCity(name, city);
+		
+		return new ResponseEntity<List<User>>(users,HttpStatus.OK);
+		
+	}
+	
+	@GetMapping("/findall")
+	public ResponseEntity<?> getAllUsers()
+	{
+		List<User> users=this.userRepository.getAllUsers();
+		
+		return new ResponseEntity<List<User>>(users,HttpStatus.OK);
+		
+	}
 }

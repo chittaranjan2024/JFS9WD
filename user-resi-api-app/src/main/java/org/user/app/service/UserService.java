@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.user.app.model.User;
 
+
 public interface UserService {
 
 	public User addUser(User user);

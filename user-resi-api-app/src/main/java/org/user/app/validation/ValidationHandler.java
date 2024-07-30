@@ -1,5 +1,6 @@
 package org.user.app.validation;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +32,30 @@ public class ValidationHandler  extends ResponseEntityExceptionHandler{
 		});
 		
 		return new ResponseEntity<Object>(response,HttpStatus.BAD_REQUEST);
+	}
+	@ExceptionHandler(NullPointerException.class)
+	public  ResponseEntity<Map<String, String>> nullPointerExceptionexceptionHandler(NullPointerException exception)
+	{
+		Map<String, String> response=new HashMap<String, String>();
+		response.put("message", exception.getMessage().toString());
+		return new ResponseEntity<Map<String, String>>(response,HttpStatus.BAD_GATEWAY);
+	}
+	
+	@ExceptionHandler(ArithmeticException.class)
+	public  ResponseEntity<Map<String, String>> exceptionHandler(ArithmeticException exception)
+	{
+		Map<String, String> response=new HashMap<String, String>();
+		response.put("message", exception.getMessage().toString());
+		return new ResponseEntity<Map<String, String>>(response,HttpStatus.EXPECTATION_FAILED);
+	}
+	
+	@ExceptionHandler(UserIdNotFoundException.class)
+	public  ResponseEntity<Map<String, String>> UserIdNotFoundExceptionExceptionHandler(UserIdNotFoundException exception)
+	{
+		Map<String, String> response=new HashMap<String, String>();
+		response.put("message", exception.getMessage().toString());
+		response.put("date", new Date().toString());
+		return new ResponseEntity<Map<String, String>>(response,HttpStatus.EXPECTATION_FAILED);
 	}
 	
 	@ExceptionHandler(Exception.class)
