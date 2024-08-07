@@ -42,6 +42,8 @@
 		<item key="contextSelector.size.y" value="221"/>
 	</section>
 	<section name="quick_assist_proposal_size">
+		<item key="size.x" value="389"/>
+		<item key="size.y" value="241"/>
 	</section>
 	<section name="NewPackageCreationWizard.dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="429"/>
@@ -149,6 +151,7 @@
 		<item key="updateTextualMatches" value="false"/>
 		<item key="updateQualifiedNames" value="false"/>
 		<item key="patterns" value="*"/>
+		<item key="renameSubpackages" value="false"/>
 	</section>
 	<section name="AddGetterSetterDialog">
 		<item key="SortOrdering" value="false"/>
